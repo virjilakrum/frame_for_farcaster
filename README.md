@@ -1,5 +1,49 @@
 # Frame for Farcaster
 
+## About Project
+
+## Daily Token Giveaway Frame (For Warpcast)
+
+**Overview:**
+
+This daily token giveaway frame is a frame that can be used for daily token distribution on the Warpcast platform. Users can claim their daily token allocations after following the project and recasting the frame. The frame automates token distribution using the Solana blockchain and Warpcast API.
+
+**Features:**
+
+* **Daily Token Allocation:** Users can claim a certain amount of tokens once every 24 hours.
+* **Easy Integration:** The frame can be easily integrated into the Warpcast platform with minimal coding.
+* **Secure Token Distribution:** Tokens are distributed securely through the Solana blockchain.
+* **Enhanced User Experience:** Users can claim tokens through a simple and easy-to-use interface.
+
+**Use Cases:**
+
+* **Increase Community Engagement:** Daily tokens can be used to incentivize users to participate in the project and be more active on the platform.
+* **Reward Early Adopters:** Daily tokens can be used to reward users who support the project in its early stages.
+* **Boost User Retention:** Daily tokens can be used to keep users engaged with the platform and encourage further participation.
+
+**How to Use:**
+
+1. **Project Setup:** Clone the frame's code from the GitHub repository ([Go to Repo](https://github.com/virjilakrum/frame_for_farcaster)).
+2. **Install Requirements:** Install all required dependencies (`frames.js`, `warpcast`, `@solana/web3.js`).
+3. **Configuration:** Set the `SOLANA_NETWORK`, `TOKEN_CONTRACT_ADDRESS`, and `TREASURY_WALLET_PRIVATE_KEY` values in the `package.json` file.
+4. **Run:** Run the frame by executing the `npm start` command.
+5. **Integration:** Integrate the frame into the Warpcast platform and allow users to claim tokens.
+
+**Notes:**
+
+* This frame is a starting point and can be customized according to your needs.
+* Token distribution rules and amounts can be adjusted based on your project's specific requirements.
+* For security reasons, never store the `TREASURY_WALLET_PRIVATE_KEY` value in code in a production environment.
+
+**Support:**
+
+If you have any questions or issues with this frame, feel free to open an issue on the GitHub repository or contact me at [https://m.youtube.com/watch?v=_fcdEgoy340](https://m.youtube.com/watch?v=_fcdEgoy340).
+
+**License:**
+
+This frame is licensed under the MIT License.
+
+
 ## About the Listing & Scope
 
 The goal of this project is to develop a Warpcast Frame that will be used for daily token giveaway. The frame has 3 key features:
