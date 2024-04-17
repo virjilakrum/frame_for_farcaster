@@ -35,9 +35,6 @@ This daily token giveaway frame is a frame that can be used for daily token dist
 * Token distribution rules and amounts can be adjusted based on your project's specific requirements.
 * For security reasons, never store the `TREASURY_WALLET_PRIVATE_KEY` value in code in a production environment.
 
-**Support:**
-
-If you have any questions or issues with this frame, feel free to open an issue on the GitHub repository or contact me at [https://m.youtube.com/watch?v=_fcdEgoy340](https://m.youtube.com/watch?v=_fcdEgoy340).
 
 **License:**
 
