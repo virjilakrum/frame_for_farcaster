@@ -1,0 +1,46 @@
+import { WarpcastClient } from "../api/warpcast";
+import { Solana } from "@solana/web3.js";
+import { Keypair } from "@solana/web3.js";
+
+const constants = {
+  // Replace with your actual values
+  SOLANA_NETWORK: "devnet", // Replace with your network (e.g., mainnet-beta)
+  TOKEN_CONTRACT_ADDRESS: "YOUR_TOKEN_CONTRACT_ADDRESS",
+  TREASURY_WALLET_PRIVATE_KEY: "YOUR_TREASURY_WALLET_PRIVATE_KEY", // Hardcoded for simplicity, use secure storage in production
+};
+
+const solanaConnection = new Solana(constants.SOLANA_NETWORK);
+
+export async function checkDailyAllocation(userId: string): Promise<boolean> {
+  const warpcastClient = new WarpcastClient(constants.PROJECT_ID);
+  const userDailyAllocation = await warpcastClient.getUserDailyAllocation(userId);
+
+  // Check if the user has daily allocation remaining
+  if (userDailyAllocation && userDailyAllocation.amount > 0) {
+    return true;
+  }
+
+  return false;
+}
+
+export async function sendTokens(userWalletAddress: string, tokenContractAddress: string): Promise<void> {
+  const treasuryWalletKeypair = Keypair.fromSecretKey(Uint8Array.from(Buffer.from(constants.TREASURY_WALLET_PRIVATE_KEY, "hex")));
+
+  // Create a transaction to transfer tokens from treasury wallet to user wallet
+  const transaction = new Solana.Transaction();
+  const transferInstruction = Solana.SystemProgram.transfer({
+    fromPubkey: treasuryWalletKeypair.publicKey,
+    toPubkey: new Solana.PublicKey(userWalletAddress),
+    lamports: 1000000, // 1 token in SOL (adjust as needed)
+  });
+  transaction.addInstruction(transferInstruction);
+
+  // Sign the transaction with the treasury wallet's private key
+  transaction.sign(treasuryWalletKeypair);
+
+  // Send the transaction to the Solana network
+  await solanaConnection.sendRawTransaction(transaction);
+  await solanaConnection.confirmTransaction(transaction.signature);
+
+  console.log(`Tokens successfully sent to ${userWalletAddress}`);
+}

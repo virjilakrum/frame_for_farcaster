@@ -13,6 +13,9 @@ const App: React.FC = () => {
     isFollowing: false,
     hasRecasted: false,
   });
+
+  const warpcastClient = new WarpcastClient(constants.PROJECT_ID);
+
   const [dailyAllocation, setDailyAllocation] =
     useState<DailyAllocation | null>(null);
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
@@ -26,8 +29,7 @@ const App: React.FC = () => {
         await warpcastClient.fetchRecastedFrames("YOUR_FRAME_ID"); // Replace with frame ID
 
       setUserStatus({
-        isFollowing: userProfile.following.some(
-          (f) => f.fid === constants.PROJECT_ID,
+        isFollowing: userProfile.following.some((f) => f.fid === constants.PROJECT_ID,
         ),
         hasRecasted: recastedFrames.some((f) => f.id === "YOUR_FRAME_ID"), // Replace with frame ID
       });

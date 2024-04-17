@@ -1,17 +1,19 @@
 {
-  "name": "frame_for_farcaster",
-  "version": "1.0.0",
-  "description": "## About the Listing & Scope",
-  "main": "index.js",
+  "name": "daily-token-giveaway-frame",
+  "version": "0.1.0",
+  "description": "Daily token giveaway frame for Warpcast",
+  "main": "src/App.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "frames serve",
+    "build": "frames build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@solana/web3.js": "^1.91.4",
-    "frames.js": "^0.13.2",
-    "warpcast": "^1.0.0"
+    "frames.js": "^latest",
+    "warpcast": "^latest",
+    "@solana/web3.js": "^latest"
+  },
+  "devDependencies": {
+    "ts-node": "^latest", // Only needed if using TypeScript
+    "typescript": "^latest" // Only needed if using TypeScript
   }
 }

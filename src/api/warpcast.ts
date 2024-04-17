@@ -1,4 +1,6 @@
 import { Warpcast } from "warpcast";
+import WarpcastClient from "../api/warpcast";
+
 
 class WarpcastClient {
   private readonly warpcast: Warpcast;
